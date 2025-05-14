@@ -10,7 +10,7 @@
 
             {{-- عرض أخطاء التحقق --}}
             @if ($errors->any())
-                <div class="alert alert-danger">
+                <div class="alert alert-danger text-white">
                     <strong>يوجد أخطاء في البيانات:</strong>
                     <ul class="mb-0">
                         @foreach ($errors->all() as $error)
@@ -25,21 +25,21 @@
                 @csrf
 
                 <div class="mb-3">
-                    <label for="title" class="form-label">عنوان المهمة <span class="text-danger">*</span></label>
+                    <label for="title" class="form-label text-white">عنوان المهمة <span class="text-danger">*</span></label>
                     <input type="text" name="title" id="title" class="form-control"
                            value="{{ old('title') }}" required
                            placeholder="مثال: دراسة للامتحان">
                 </div>
 
                 <div class="mb-3">
-                    <label for="description" class="form-label">وصف المهمة</label>
+                    <label for="description" class="form-label text-white">وصف المهمة</label>
                     <textarea name="description" id="description" class="form-control"
                               rows="4" placeholder="تفاصيل إضافية عن المهمة (اختياري)">{{ old('description') }}</textarea>
                 </div>
 
                 <div class="d-flex justify-content-between">
-                    <a href="{{ route('todos.index') }}" class="btn btn-secondary">← العودة إلى المهام</a>
-                    <button type="submit" class="btn btn-success">حفظ المهمة</button>
+                    <a href="{{ route('todos.index') }}" class="btn btn-secondary text-white">← العودة إلى المهام</a>
+                    <button type="submit" class="btn btn-success text-white">حفظ المهمة</button>
                 </div>
             </form>
 
