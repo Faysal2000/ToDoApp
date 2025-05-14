@@ -87,6 +87,25 @@ class TodoController extends Controller
         return redirect()->route('todos.index')->with('success', 'تم تعديل المهمة بنجاح!');
     }
 
+
+
+
+    public function toggleStatus($id)
+{
+    $todo = auth()->user()->todos()->findOrFail($id);
+    $todo->is_completed = !$todo->is_completed;
+    $todo->save();
+
+    return redirect()->route('todos.index')->with('success', 'تم تحديث حالة المهمة!');
+}
+
+
+
+
+
+
+
+
     /**
      * Remove the specified resource from storage.
      */

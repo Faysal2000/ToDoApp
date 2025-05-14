@@ -36,8 +36,7 @@ Route::middleware(['auth'])->group(function () {
 });
 
 
-
-
+Route::patch('/todos/{id}/toggle-status', [TodoController::class, 'toggleStatus'])->name('todos.toggleStatus');
 
 
 
