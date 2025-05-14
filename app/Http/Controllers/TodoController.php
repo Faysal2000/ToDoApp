@@ -21,6 +21,13 @@ class TodoController extends Controller
         return view('todos.index', compact('todos'));
     }
 
+
+    public function show(Todo $todo)
+{
+    $todo = auth()->user()->todos()->findOrFail($todo->id);
+    return view('todos.show', compact('todo'));
+}
+
     /**
      * Show the form for creating a new resource.
      */
