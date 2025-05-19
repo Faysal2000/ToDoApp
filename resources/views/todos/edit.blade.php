@@ -4,7 +4,6 @@
 <div class="container">
     <h2 class="mb-4 text-center">✏️ تعديل المهمة</h2>
 
-    {{-- عرض الأخطاء --}}
     @if ($errors->any())
         <div class="alert alert-danger">
             <strong>حدثت بعض الأخطاء:</strong>
@@ -16,7 +15,6 @@
         </div>
     @endif
 
-    {{-- نموذج تعديل المهمة --}}
     <form action="{{ route('todos.update', $todo->id) }}" method="POST" class="card shadow-sm p-4">
         @csrf
         @method('PUT')

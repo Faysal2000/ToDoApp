@@ -4,7 +4,7 @@
 <div class="container mt-5">
     <h2 class="mb-4 text-center text-white">قائمة المهام</h2>
 
-    {{-- رسائل التنبيه --}}
+   
     @if (session('success'))
         <div class="alert alert-success alert-dismissible fade show" role="alert">
             {{ session('success') }}
@@ -12,12 +12,12 @@
         </div>
     @endif
 
-    {{-- زر إضافة مهمة جديدة --}}
+   
     <div class="mb-3 text-end">
         <a href="{{ route('todos.create') }}" class="btn btn-primary text-white">+ إضافة مهمة جديدة</a>
     </div>
 
-    {{-- جدول عرض المهام --}}
+  
     <div class="table-responsive">
         <table class="table table-bordered align-middle text-center">
             <thead class="table-dark text-white">
@@ -36,12 +36,12 @@
                         <td>{{ $todo->title }}</td>
                         <td>{{ $todo->description ?? '—' }}</td>
                         <td>
-                            <span class="badge {{ $todo->is_completed ? 'bg-success' : 'bg-warning text-dark' }}">
+                            <span class="badge {{ $todo->is_completed ? 'bg-success' : 'bg-warning text-white' }}">
                                 {{ $todo->is_completed ? 'مكتملة' : 'غير مكتملة' }}
                             </span>
                         </td>
                         <td>
-                            {{-- زر تغيير الحالة --}}
+                          
                             <form action="{{ route('todos.toggleStatus', $todo->id) }}" method="POST" class="d-inline">
                                 @csrf
                                 @method('PATCH')
@@ -50,10 +50,10 @@
                                 </button>
                             </form>
 
-                            {{-- زر تعديل --}}
+                          
                             <a href="{{ route('todos.edit', $todo->id) }}" class="btn btn-sm btn-primary text-white">تعديل</a>
-
-                            {{-- زر حذف مع تأكيد --}}
+                            <a href="{{ route('todos.show', $todo->id) }}" class="btn btn-info btn-sm text-white">عرض</a>
+                            
                             <form action="{{ route('todos.destroy', $todo->id) }}" method="POST" class="d-inline text-white" onsubmit="return confirm('هل أنت متأكد أنك تريد حذف هذه المهمة؟');">
                                 @csrf
                                 @method('DELETE')
